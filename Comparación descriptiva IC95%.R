@@ -73,9 +73,3 @@ binom.confint( x = c(sum(datos24$anemia_oms_reg2024 == "Sí", na.rm = TRUE),
                n = nrow(datos24),
                conf.level = 0.95,
                methods = "wilson")
-#Tabla anemia severidad 2001 vs 2024 ----
-tbl_anemia1 <- datos24 |>
-  select(anemia_oms2001_cat, anemia_oms2024_catb, anemia_oms2024_catreg) |>
-  tbl_summary(statistic = all_categorical() ~ "{n} ({p}%)")
-
-tbl_anemia1
