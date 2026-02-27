@@ -73,3 +73,8 @@ binom.confint( x = c(sum(datos24$anemia_oms_reg2024 == "Sí", na.rm = TRUE),
                n = nrow(datos24),
                conf.level = 0.95,
                methods = "wilson")
+
+#Tabla de clasificación de severidad (Frecuencia %)
+tbl_anemia_cat <- datos24 |>
+  select(anemia_oms2001_cat, anemia_oms2024_catb, anemia_oms2024_catreg) |>
+  tbl_summary(statistic = all_categorical() ~ "{n} ({p}%)")
