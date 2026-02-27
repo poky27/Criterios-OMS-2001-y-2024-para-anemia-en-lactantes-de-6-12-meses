@@ -2,7 +2,7 @@
 
 if(!require("pacman")) install.packages("pacman")
 
-pacman::p_load(tidyverse, summarytools, readxl, openxlsx, gtsummary stringr, 
+pacman::p_load(tidyverse, summarytools, readxl, openxlsx, gtsummary, stringr, 
                dplyr, ggplot2, sandwich, glue, rlang)
 
 
@@ -143,4 +143,5 @@ curve(dnorm(x, mean = mean(j), sd = sd(j)),
 
 legend("topright",
        legend = c("Densidad (datos)", "Normal teórica"),
+
        lwd = 2, lty = c(1, 2), bty = "n")
