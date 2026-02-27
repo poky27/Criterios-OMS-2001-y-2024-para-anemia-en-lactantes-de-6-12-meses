@@ -7,6 +7,30 @@ pacman::p_load(tidyverse, summarytools, binom, readxl, openxlsx,gtsummary,
                dplyr)
 # 2 Cargar data ----
 datos24 <- read_excel("C:/Users/LENOVO/Downloads/datos24.xlsx")
+
+#Hb resumen
+hb_2001 <- datos24 |>
+  summarise(n = sum(!is.na(hb_tab_2001)),
+            mediana = median(hb_tab_2001, na.rm = TRUE),
+            q1 = quantile(hb_tab_2001, 0.25, na.rm = TRUE),
+            q3 = quantile(hb_tab_2001, 0.75, na.rm = TRUE),
+            iqr = IQR(hb_tab_2001, na.rm = TRUE))|> gt()
+hb_2001
+hb_2024tb <- datos24 |>
+  summarise(n = sum(!is.na(hb_tab_2024)),
+            mediana = median(hb_tab_2024, na.rm = TRUE),
+            q1 = quantile(hb_tab_2024, 0.25, na.rm = TRUE),
+            q3 = quantile(hb_tab_2024, 0.75, na.rm = TRUE),
+            iqr = IQR(hb_tab_2024, na.rm = TRUE))|> gt()
+hb_2024tb
+hb_2024rg <- datos24 |>
+  summarise(n = sum(!is.na(hb_reg_2024)),
+            mediana = median(hb_reg_2024, na.rm = TRUE),
+            q1 = quantile(hb_reg_2024, 0.25, na.rm = TRUE),
+            q3 = quantile(hb_reg_2024, 0.75, na.rm = TRUE),
+            iqr = IQR(hb_reg_2024, na.rm = TRUE))|> gt()
+hb_2024rg 
+
 #Tabla anemia 2001 vs 2024 ----
 tbl_anemia <- datos24 |>
   select(anemia_oms2001, anemia_oms_tab2024, anemia_oms_reg2024) |>
@@ -78,3 +102,4 @@ binom.confint( x = c(sum(datos24$anemia_oms_reg2024 == "Sí", na.rm = TRUE),
 tbl_anemia_cat <- datos24 |>
   select(anemia_oms2001_cat, anemia_oms2024_catb, anemia_oms2024_catreg) |>
   tbl_summary(statistic = all_categorical() ~ "{n} ({p}%)")
+
