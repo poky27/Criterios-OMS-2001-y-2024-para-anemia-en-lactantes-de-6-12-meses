@@ -98,8 +98,40 @@ binom.confint( x = c(sum(datos24$anemia_oms_reg2024 == "Sí", na.rm = TRUE),
                conf.level = 0.95,
                methods = "wilson")
 
+##McNemar ----
+df_pareado <- datos24 |>
+  filter(!is.na(anemia_oms2001), !is.na(anemia_oms_tab2024))
+tab_mcnemar <- table(
+  OMS2001 = df_pareado$anemia_oms2001,
+  OMS2024 = df_pareado$anemia_oms_tab2024
+)
+
+tab_mcnemar
+b <- tab_mcnemar["Sí","No"]  # 2001 Sí, 2024 No
+c <- tab_mcnemar["No","Sí"]  # 2001 No, 2024 Sí
+discordantes <- b + c
+discordantes
+#Si b+c > 25 se aplica corrección de continuidad
+mcnemar_cc <- mcnemar.test(tab_mcnemar, correct = TRUE)
+mcnemar_cc
+
+df_pareado1 <- datos24 |>
+  filter(!is.na(anemia_oms_tab2024), !is.na(anemia_oms_reg2024))
+tab_mcnemar1 <- table(
+  OMS2024tab= df_pareado$anemia_oms_tab2024,
+  OMS2024reg= df_pareado$anemia_oms_reg2024
+)
+
+tab_mcnemar1
+b1 <- tab_mcnemar1["Sí","No"]  # 2001 Sí, 2024 No
+c1 <- tab_mcnemar1["No","Sí"]  # 2001 No, 2024 Sí
+discordantes1 <- b1 + c1
+discordantes1
+#Si b+c > 25 se aplica corrección de continuidad
+mcnemar_cc1 <- mcnemar.test(tab_mcnemar1, correct = TRUE)
+mcnemar_cc1
+
 #Tabla de clasificación de severidad (Frecuencia %)
 tbl_anemia_cat <- datos24 |>
   select(anemia_oms2001_cat, anemia_oms2024_catb, anemia_oms2024_catreg) |>
   tbl_summary(statistic = all_categorical() ~ "{n} ({p}%)")
-
