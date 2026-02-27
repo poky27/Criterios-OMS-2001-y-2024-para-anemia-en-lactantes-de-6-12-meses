@@ -6,7 +6,7 @@ if(!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, summarytools, binom, readxl, openxlsx,gtsummary,
                dplyr)
 # 2 Cargar data ----
-base_original <- read_excel("C:/Users/LENOVO/Downloads/dato24.xlsx")
+datos24 <- read_excel("C:/Users/LENOVO/Downloads/datos24.xlsx")
 #Tabla anemia 2001 vs 2024 ----
 tbl_anemia <- datos24 |>
   select(anemia_oms2001, anemia_oms_tab2024, anemia_oms_reg2024) |>
@@ -77,4 +77,5 @@ binom.confint( x = c(sum(datos24$anemia_oms_reg2024 == "Sí", na.rm = TRUE),
 tbl_anemia1 <- datos24 |>
   select(anemia_oms2001_cat, anemia_oms2024_catb, anemia_oms2024_catreg) |>
   tbl_summary(statistic = all_categorical() ~ "{n} ({p}%)")
+
 tbl_anemia1
