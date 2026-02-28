@@ -1,7 +1,7 @@
 #Instalar paquetes y cargar librerías
 
 if(!require("pacman")) install.packages("pacman")
-pacman::p_load(sf, dplyr,stringr, readxl, openxlsx,, ggplot2, gtsummary, glue, rlang, readr)
+pacman::p_load(sf, dplyr,stringr, readxl, openxlsx, ggplot2, gtsummary, glue, rlang, readr)
 
 #  Cargar data ----
 datos24 <- read_excel("C:/Users/LENOVO/Downloads/datos24.xlsx")
@@ -126,3 +126,4 @@ mapa_junin <- ggplot() +
   )
 
 mapa_junin
+
