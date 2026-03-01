@@ -86,7 +86,7 @@ Tener disponible datos24
 
 - Ejecutar el script correspondiente
 
-9️⃣ Reclasificación de severidad
+# 9️⃣ Reclasificación de severidad
 
 - Cargar df2
 
