@@ -1,12 +1,12 @@
-📊 Proyecto de Análisis Estadístico
+# 📊 Proyecto de Análisis Estadístico
 
 Este repositorio contiene los scripts necesarios para realizar los análisis estadísticos y generar tablas y figuras del estudio.
 
-⚙️ Requisitos Previos
+# ⚙️ Requisitos Previos
 
 Antes de ejecutar cualquier script, es necesario instalar y cargar los paquetes requeridos en R.
 
-📦 Instalación de paquetes
+# 📦 Instalación de paquetes
 
 Ejecutar el siguiente código en R:
 
