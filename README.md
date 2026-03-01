@@ -20,7 +20,7 @@ pacman::p_load(
   stringr, lmtest, ggpmisc, sf, logistf,
   dplyr, ggplot2, sandwich
 )
-📂 Carga de Datos
+# 📂 Carga de Datos
 
 Para cargar la base de datos, utilizar:
 
