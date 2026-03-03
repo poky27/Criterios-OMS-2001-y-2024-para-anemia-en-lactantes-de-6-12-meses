@@ -31,7 +31,7 @@ La ruta "C:/Users/LENOVO/Documents/Prueba2/df2.xlsx" debe modificarse según la 
 
 Ejemplo alternativo si el archivo está en la misma carpeta del proyecto:
 
-df2 <- read_excel("df2.xlsx")
+df2 <- read_excel("Disco:/Usurario/x/[nombre de carpeta]/df2.xlsx")
 # 📑 Orden de Ejecución de los Archivos
 
 Para obtener los resultados correctamente, ejecutar los scripts en el siguiente orden:
