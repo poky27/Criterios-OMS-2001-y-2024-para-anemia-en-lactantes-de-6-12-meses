@@ -29,7 +29,7 @@ df2 <- read_excel("C:/Users/LENOVO/Documents/Prueba2/df2.xlsx")
 ⚠️ Importante:
 La ruta "C:/Users/LENOVO/Documents/Prueba2/df2.xlsx" debe modificarse según la ubicación donde hayas descargado el archivo en tu computadora.
 
-Ejemplo alternativo si el archivo está en la misma carpeta del proyecto:
+Ejemplo:
 
 df2 <- read_excel("Disco:/Usurario/x/[nombre de carpeta]/df2.xlsx")
 # 📑 Orden de Ejecución de los Archivos
